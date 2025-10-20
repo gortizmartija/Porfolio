@@ -1,68 +1,385 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import 'tailwindcss';
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    background-color: theme(--color-darkmode-500);
+    color: theme(--color-neutral-50);
   }
-  a:hover {
-    color: #747bff;
+}
+
+@theme {
+  /* Espaciados */
+  --spacing-space-1: 2px;
+  --spacing-space-2: 4px;
+  --spacing-space-3: 8px;
+  --spacing-space-4: 12px;
+  --spacing-space-5: 16px;
+  --spacing-space-6: 20px;
+  --spacing-space-7: 24px;
+  --spacing-space-8: 32px;
+  --spacing-space-9: 40px;
+  --spacing-space-10: 48px;
+  --spacing-space-11: 56px;
+  --spacing-space-12: 64px;
+
+  /* Anchos de trazo */
+  --stroke-width-none: 0.5px;
+  --stroke-width-1: 1px;
+  --stroke-width-2: 2px;
+  --stroke-width-3: 4px;
+  --stroke-width-4: 6px;
+  --stroke-width-5: 8px;
+
+  /* Radios de borde */
+  --radius-none: 0px;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-3: 6px;
+  --radius-4: 8px;
+  --radius-5: 10px;
+  --radius-6: 12px;
+  --radius-7: 16px;
+  --radius-full: 999px;
+
+  /* Colores */
+  --color-neutral-50: #f8f7f8ff;
+  --color-neutral-100: #f1eff2ff;
+  --color-neutral-200: #eae7ebff;
+  --color-neutral-300: #e3e0e4ff;
+  --color-neutral-400: #dcd8deff;
+  --color-neutral-500: #d5d0d7ff;
+  --color-neutral-600: #b3aab7ff;
+  --color-neutral-700: #918496ff;
+  --color-neutral-800: #6d6172ff;
+  --color-neutral-900: #49414cff;
+  --color-primary-50: #edd5f7ff;
+  --color-primary-100: #daabf0ff;
+  --color-primary-200: #c881e8ff;
+  --color-primary-300: #b657e0ff;
+  --color-primary-400: #a42dd8ff;
+  --color-primary-500: #8621b3ff;
+  --color-primary-600: #701c95ff;
+  --color-primary-700: #591677ff;
+  --color-primary-800: #43105aff;
+  --color-primary-900: #2d0b3cff;
+  --color-secondary-50: #faeae0ff;
+  --color-secondary-100: #f5d5c1ff;
+  --color-secondary-200: #f0c1a3ff;
+  --color-secondary-300: #ebac84ff;
+  --color-secondary-400: #e69765ff;
+  --color-secondary-500: #e18246ff;
+  --color-secondary-600: #d46722ff;
+  --color-secondary-700: #a9521bff;
+  --color-secondary-800: #7f3e15ff;
+  --color-secondary-900: #55290eff;
+  --color-secondary2-50: #f3ede3ff;
+  --color-secondary2-100: #e6dbc8ff;
+  --color-secondary2-200: #dac9acff;
+  --color-secondary2-300: #ceb790ff;
+  --color-secondary2-400: #c1a575ff;
+  --color-secondary2-500: #b59359ff;
+  --color-secondary2-600: #9c7c45ff;
+  --color-secondary2-700: #7d6338ff;
+  --color-secondary2-800: #5d4a2aff;
+  --color-secondary2-900: #3e321cff;
+  --color-secondary3-50: #d4c0fcff;
+  --color-secondary3-100: #a981f9ff;
+  --color-secondary3-200: #7e42f6ff;
+  --color-secondary3-300: #560bebff;
+  --color-secondary3-400: #3f08acff;
+  --color-secondary3-500: #28056dff;
+  --color-secondary3-600: #21045bff;
+  --color-secondary3-700: #1b0349ff;
+  --color-secondary3-800: #140237ff;
+  --color-secondary3-900: #0d0224ff;
+  --color-succes-50: #ecfdf5ff;
+  --color-succes-100: #d1fae5ff;
+  --color-succes-200: #a7f3d0ff;
+  --color-succes-300: #6ee7b7ff;
+  --color-succes-400: #34d399ff;
+  --color-succes-500: #10b981ff;
+  --color-succes-600: #059669ff;
+  --color-succes-700: #047857ff;
+  --color-succes-800: #065f46ff;
+  --color-succes-900: #064e3bff;
+  --color-warning-50: #fffbebff;
+  --color-warning-100: #fef3c7ff;
+  --color-warning-200: #fde68aff;
+  --color-warning-300: #fcd34dff;
+  --color-warning-400: #fbbf24ff;
+  --color-warning-500: #f59e0bff;
+  --color-warning-600: #d97706ff;
+  --color-warning-700: #b45309ff;
+  --color-warning-800: #92400eff;
+  --color-warning-900: #78350fff;
+  --color-error-50: #fef2f2ff;
+  --color-error-100: #fee2e2ff;
+  --color-error-200: #fecacaff;
+  --color-error-300: #fca5a5ff;
+  --color-error-400: #f87171ff;
+  --color-error-500: #ef4444ff;
+  --color-error-600: #dc2626ff;
+  --color-error-700: #b91c1cff;
+  --color-error-800: #991b1bff;
+  --color-error-900: #7f1d1dff;
+  --color-shades-50: #ffffffff;
+  --color-shades-100: #000000ff;
+  --color-darkmode-50: #221a1eff;
+  --color-darkmode-100: #1e161aff;
+  --color-darkmode-200: #1a1216ff;
+  --color-darkmode-300: #160e12ff;
+  --color-darkmode-400: #120a0eff;
+  --color-darkmode-500: #0e050aff;
+  --color-darkmode-600: #0c0408ff;
+  --color-darkmode-700: #0a0406ff;
+  --color-darkmode-800: #080404ff;
+  --color-darkmode-900: #060404ff;
+
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+@layer utilities {
+  /* D1 */
+  .text-d1-semibold {
+    @apply font-poppins text-7xl font-semibold leading-none tracking-tighter;
   }
-  button {
-    background-color: #f9f9f9;
+  .text-d1-bold {
+    @apply font-poppins text-7xl font-bold leading-none tracking-tighter;
+  }
+  .text-d1-extrabold {
+    @apply font-poppins text-7xl font-extrabold leading-none tracking-tighter;
+  }
+
+  /* D1 Small */
+  .text-d1s-semibold {
+    @apply font-poppins text-5xl font-semibold leading-tight tracking-tighter;
+  }
+  .text-d1s-bold {
+    @apply font-poppins text-5xl font-bold leading-tight tracking-tighter;
+  }
+  .text-d1s-extrabold {
+    @apply font-poppins text-5xl font-extrabold leading-tight tracking-tighter;
+  }
+
+  /* D2 */
+  .text-d2-semibold {
+    @apply font-poppins text-6xl font-semibold leading-tight tracking-tighter;
+  }
+  .text-d2-bold {
+    @apply font-poppins text-6xl font-bold leading-tight tracking-tighter;
+  }
+  .text-d2-extrabold {
+    @apply font-poppins text-6xl font-extrabold leading-tight tracking-tighter;
+  }
+
+  /* D2 Small */
+  .text-d2s-semibold {
+    @apply font-poppins text-4xl font-semibold leading-tight tracking-tighter;
+  }
+  .text-d2s-bold {
+    @apply font-poppins text-4xl font-bold leading-tight tracking-tighter;
+  }
+  .text-d2s-extrabold {
+    @apply font-poppins text-4xl font-extrabold leading-tight tracking-tighter;
+  }
+
+  /* H1 */
+  .text-h1-semibold {
+    @apply font-poppins text-5xl font-semibold leading-tight tracking-tighter;
+  }
+  .text-h1-bold {
+    @apply font-poppins text-5xl font-bold leading-tight tracking-tighter;
+  }
+  .text-h1-extrabold {
+    @apply font-poppins text-5xl font-extrabold leading-tight tracking-tighter;
+  }
+
+  /* H1 Small */
+  .text-h1s-semibold {
+    @apply font-poppins text-3xl font-semibold leading-10 tracking-tighter;
+  }
+  .text-h1s-bold {
+    @apply font-poppins text-3xl font-bold leading-10 tracking-tighter;
+  }
+  .text-h1s-extrabold {
+    @apply font-poppins text-3xl font-extrabold leading-10 tracking-tighter;
+  }
+
+  /* H2 */
+  .text-h2-semibold {
+    @apply font-poppins text-4xl font-semibold leading-tight tracking-tight;
+  }
+  .text-h2-bold {
+    @apply font-poppins text-4xl font-bold leading-tight tracking-tighter;
+  }
+  .text-h2-extrabold {
+    @apply font-poppins text-4xl font-extrabold leading-tight tracking-tighter;
+  }
+
+  /* H2 Small */
+  .text-h2s-normal {
+    @apply font-poppins text-3xl font-normal leading-8 tracking-tight;
+  }
+  .text-h2s-bold {
+    @apply font-poppins text-3xl font-bold leading-8 tracking-tight;
+  }
+  .text-h2s-extrabold {
+    @apply font-poppins text-3xl font-extrabold leading-8 tracking-tight;
+  }
+
+  /* H3 */
+  .text-h3-semibold {
+    @apply font-poppins text-3xl font-semibold leading-10 tracking-tight;
+  }
+  .text-h3-bold {
+    @apply font-poppins text-3xl font-bold leading-10 tracking-tight;
+  }
+  .text-h3-extrabold {
+    @apply font-poppins text-3xl font-extrabold leading-10 tracking-tight;
+  }
+
+  /* H3 Small */
+  .text-h3s-semibold {
+    @apply font-poppins text-2xl font-semibold leading-7 tracking-tight;
+  }
+  .text-h3s-bold {
+    @apply font-poppins text-2xl font-bold leading-7 tracking-tight;
+  }
+  .text-h3s-extrabold {
+    @apply font-poppins text-2xl font-extrabold leading-7 tracking-tight;
+  }
+
+  /* H4 */
+  .text-h4-semibold {
+    @apply font-poppins text-3xl font-semibold leading-8 tracking-tight;
+  }
+  .text-h4-bold {
+    @apply font-poppins text-3xl font-bold leading-8 tracking-tight;
+  }
+  .text-h4-extrabold {
+    @apply font-poppins text-3xl font-extrabold leading-8 tracking-tight;
+  }
+
+  /* H4 Small */
+  .text-h4s-semibold {
+    @apply font-poppins text-[19px] font-semibold leading-4 tracking-tight;
+  }
+  .text-h4s-bold {
+    @apply font-poppins text-[19px] font-bold leading-4 tracking-tight;
+  }
+  .text-h4s-extrabold {
+    @apply font-poppins text-[19px] font-extrabold leading-4 tracking-tight;
+  }
+
+  /* H5 */
+  .text-h5-semibold {
+    @apply font-poppins text-2xl font-semibold leading-7 tracking-tight;
+  }
+  .text-h5-bold {
+    @apply font-poppins text-2xl font-bold leading-7 tracking-tight;
+  }
+  .text-h5-extrabold {
+    @apply font-poppins text-2xl font-extrabold leading-7 tracking-tight;
+  }
+
+  /* H5 Small */
+  .text-h5s-semibold {
+    @apply font-poppins text-lg font-semibold leading-5 tracking-tight;
+  }
+
+  .text-h5s-bold {
+    @apply font-poppins text-lg font-bold leading-5 tracking-tight;
+  }
+
+  .text-h5s-extrabold {
+    @apply font-poppins text-lg font-extrabold leading-5 tracking-tight;
+  }
+
+  /* H6 */
+  .text-h6-semibold {
+    @apply font-poppins text-lg font-semibold leading-6 tracking-tight;
+  }
+  .text-h6-bold {
+    @apply font-poppins text-lg font-bold leading-6 tracking-tight;
+  }
+  .text-h6-extrabold {
+    @apply font-poppins text-lg font-extrabold leading-6 tracking-tight;
+  }
+
+  /* H6 Small */
+  .text-h6s-semibold {
+    @apply font-poppins text-base font-semibold leading-5 tracking-tight;
+  }
+  .text-h6s-bold {
+    @apply font-poppins text-base font-bold leading-5 tracking-tight;
+  }
+  .text-h6s-extrabold {
+    @apply font-poppins text-base font-extrabold leading-5 tracking-tight;
+  }
+
+  /* Subheading */
+  .text-subheading-normal {
+    @apply font-poppins text-xl font-normal leading-6;
+  }
+  .text-subheading-semibold {
+    @apply font-poppins text-xl font-semibold leading-6;
+  }
+  .text-subheading-underline {
+    @apply font-poppins text-xl font-normal leading-6 underline;
+  }
+
+  /* P1 */
+  .text-p1-normal {
+    @apply font-poppins text-sm font-normal leading-4;
+  }
+  .text-p1-semibold {
+    @apply font-poppins text-sm font-semibold leading-4;
+  }
+  .text-p1-underline {
+    @apply font-poppins text-sm font-normal leading-4 underline;
+  }
+
+  /* P2 */
+  .text-p2-normal {
+    @apply font-poppins text-base font-normal leading-5;
+  }
+  .text-p2-semibold {
+    @apply font-poppins text-base font-semibold leading-5;
+  }
+  .text-p2-underline {
+    @apply font-poppins text-base font-normal leading-5 underline;
+  }
+
+  /* P3 */
+  .text-p3-normal {
+    @apply font-poppins text-lg font-normal leading-5;
+  }
+  .text-p3-semibold {
+    @apply font-poppins text-lg font-semibold leading-5;
+  }
+  .text-p3-underline {
+    @apply font-poppins text-lg font-normal leading-5 underline;
+  }
+
+  /* Caption */
+  .text-caption-normal {
+    @apply font-poppins text-xs font-normal leading-3;
+  }
+  .text-caption-semibold {
+    @apply font-poppins text-xs font-semibold leading-3;
+  }
+  .text-caption-capitals {
+    @apply font-poppins text-xs font-semibold leading-3 tracking-widest uppercase;
+  }
+
+  /* Footer */
+  .text-footer-normal {
+    @apply font-poppins text-xs font-normal leading-3 tracking-wide;
+  }
+  .text-footer-semibold {
+    @apply font-poppins text-xs font-semibold leading-3 tracking-wide;
+  }
+  .text-footer-capitals {
+    @apply font-poppins text-xs font-semibold leading-3 tracking-widest uppercase;
   }
 }
