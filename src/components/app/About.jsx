@@ -1,4 +1,4 @@
-import AboutLogo from '../assets/icons/user.svg';
+import AboutLogo from '@/assets/icons/user.svg';
 
 export function About() {
   return (
@@ -9,12 +9,12 @@ export function About() {
           Sobre Mí
         </h1>
       </div>
-      <p className='text-p2-normal text-balance'>
-        Hola, me llamo Gael. Soy un apasionado del mundo del la tecnologia que{' '}
+      <p className='text-p2-normal'>
+        Hola, me llamo Gael. Soy un apasionado del mundo de la tecnologia que{' '}
         <span className='text-primary-200'>
           siempre busca superarse en cada nuevo proyecto
         </span>{' '}
-        en el que embarca.
+        en el que se embarca.
         <br />
         <br />
         <span className='text-p1-semibold'>+1</span> años de experiencia.{' '}

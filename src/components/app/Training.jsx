@@ -1,5 +1,5 @@
-import DotLogo from '../assets/icons/dot.svg';
-import TrainingLogo from '../assets/icons/book.svg';
+import DotLogo from '@/assets/icons/dot.svg';
+import TrainingLogo from '@/assets/icons/book.svg';
 
 export function Training() {
   return (
