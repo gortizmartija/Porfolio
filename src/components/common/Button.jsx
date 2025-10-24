@@ -54,7 +54,13 @@ export function Button({
   }
 
   return (
-    <a href={href} className={classes} aria-label={ariaLabel} {...rest}>
+    <a
+      href={href}
+      className={classes}
+      target='_blanck'
+      aria-label={ariaLabel}
+      {...rest}
+    >
       {children}
     </a>
   );

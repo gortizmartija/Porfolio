@@ -1,4 +1,5 @@
 import { Button } from '@/components/common';
+import CV from '@/assets/CV.pdf';
 
 export function Header() {
   return (
@@ -11,14 +12,20 @@ export function Header() {
           Desarrollador de Software
         </h4>
         <nav className='flex items-center gap-2 mt-3'>
-          <Button href='' arialabel='Descargate mi CV' variant='outlineSM'>
+          <Button
+            href={CV}
+            arialabel='Descargate mi CV'
+            variant='outlineSM'
+            download
+          >
             Descargar CV
           </Button>
           <Button
-            href=''
+            href='mailto:gortizmartija@gmail.com'
             arialabel='Contactame a traves del Correo'
             variant='outlineIconSM'
             className='group'
+            target='_self'
           >
             <svg
               width='16'
@@ -46,7 +53,7 @@ export function Header() {
             </svg>
           </Button>
           <Button
-            href=''
+            href='https://www.linkedin.com/in/gortizmartija'
             arialabel='Contactame a traves de Linkedin'
             variant='outlineIconSM'
             className='group'
@@ -85,7 +92,7 @@ export function Header() {
             </svg>
           </Button>
           <Button
-            href=''
+            href='https://github.com/gortizmartija'
             arialabel='Informate sobre mis proyectos en GitHub'
             variant='outlineIconSM'
             className='group'
