@@ -15,7 +15,9 @@ export function Project({
     <div className='flex flex-col md:flex-row gap-3 md:gap-6'>
       <img
         src={img}
-        alt='Imagen del Proyecto'
+        alt={`Vista previa del proyecto ${name}`}
+        loading='lazy'
+        decoding='async'
         className='rounded-[25px] md:max-w-1/2'
       />
       <div className='flex flex-col gap-3'>

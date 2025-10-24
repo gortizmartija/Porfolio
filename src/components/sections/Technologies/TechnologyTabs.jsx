@@ -32,7 +32,7 @@ export function TechnologyTabs() {
         <ul
           className='flex flex-wrap -mb-px justify-between'
           role='tablist'
-          aria-label='Tecnologias'
+          aria-label='Algunas de las Tecnologias con las que he tenido contacto'
         >
           {tabs.map((tab) => {
             const isActive = tab.id === active;
@@ -45,12 +45,17 @@ export function TechnologyTabs() {
                   aria-selected={isActive}
                   aria-controls={`panel-${tab.id}`}
                   onClick={() => setActive(tab.id)}
-                  className={
-                    `text-small md:text-lg font-semibold inline-block py-4 rounded-t-lg cursor-pointer ` +
-                    (isActive
-                      ? 'text-primary-200 border-b-2 border-primary-200'
-                      : 'border-b-2 border-transparent hover:text-primary-400 hover:border-primary-400')
-                  }
+                  className={`text-small md:text-lg font-semibold inline-block py-4 rounded-t-lg cursor-pointer relative 
+                    ${
+                      isActive
+                        ? 'text-primary-200'
+                        : 'text-gray-400 hover:text-primary-400'
+                    }
+                    after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 
+                    after:bg-primary-200 after:transform after:scale-x-0 after:transition-transform 
+                    ${
+                      isActive ? 'after:scale-x-100' : 'hover:after:scale-x-100'
+                    }`}
                 >
                   {tab.label}
                 </button>

@@ -1,4 +1,3 @@
-import EmailLogo from '@/assets/icons/email.svg';
 import { Button } from '@/components/common';
 
 export function Header() {
@@ -12,12 +11,12 @@ export function Header() {
           Desarrollador de Software
         </h4>
         <nav className='flex items-center gap-2 mt-3'>
-          <Button href='' arialabel='CV' variant='outlineSM'>
+          <Button href='' arialabel='Descargate mi CV' variant='outlineSM'>
             Descargar CV
           </Button>
           <Button
             href=''
-            arialabel='Correo'
+            arialabel='Contactame a traves del Correo'
             variant='outlineIconSM'
             className='group'
           >
@@ -48,7 +47,7 @@ export function Header() {
           </Button>
           <Button
             href=''
-            arialabel='Linkedin'
+            arialabel='Contactame a traves de Linkedin'
             variant='outlineIconSM'
             className='group'
           >
@@ -87,7 +86,7 @@ export function Header() {
           </Button>
           <Button
             href=''
-            arialabel='GitHub'
+            arialabel='Informate sobre mis proyectos en GitHub'
             variant='outlineIconSM'
             className='group'
           >
