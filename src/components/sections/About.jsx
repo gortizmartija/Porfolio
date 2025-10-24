@@ -1,14 +1,13 @@
 import AboutLogo from '@/assets/icons/user.svg';
+import { Title } from '@/components/common';
 
 export function About() {
   return (
     <article className='flex flex-col gap-6'>
-      <div className='flex gap-2 items-end '>
+      <Title text='Sobre Mí'>
         <img src={AboutLogo} alt='About Logo' />
-        <h1 className='text-h1s-semibold bg-gradient-to-t from-primary-200 to-neutral-50 bg-clip-text text-transparent'>
-          Sobre Mí
-        </h1>
-      </div>
+      </Title>
+
       <p className='text-p2-normal'>
         Hola, me llamo Gael. Soy un apasionado del mundo de la tecnologia que{' '}
         <span className='text-primary-200'>

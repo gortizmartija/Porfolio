@@ -1,15 +1,14 @@
 import TechnologiesLogo from '@/assets/icons/thunder.svg';
 import { TechnologyTabs } from './TechnologyTabs';
+import { Title } from '@/components/common';
 
 export function Technologies() {
   return (
     <article className='flex flex-col gap-6'>
-      <div className='flex gap-2 items-end '>
+      <Title text='Tecnologias'>
         <img src={TechnologiesLogo} alt='About Logo' />
-        <h1 className='text-h1s-semibold bg-gradient-to-t from-primary-200 to-neutral-50 bg-clip-text text-transparent'>
-          Tecnologias
-        </h1>
-      </div>
+      </Title>
+
       <p className='text-p2-normal'>
         Algunas de las{' '}
         <span className='text-secondary-200'>tecnologias mas destacables</span>{' '}

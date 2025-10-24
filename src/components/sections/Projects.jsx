@@ -1,20 +1,24 @@
 import ProjectsLogo from '@/assets/icons/code.svg';
 import { Project } from '@/components/ui';
+import { Title } from '@/components/common';
 
 export function Projects() {
   return (
     <article className='flex flex-col gap-6'>
-      <div className='flex gap-2 items-end '>
+      <Title text='Proyectos'>
         <img src={ProjectsLogo} alt='Projects Logo' />
-        <h1 className='text-h1s-semibold bg-gradient-to-t from-primary-200 to-neutral-50 bg-clip-text text-transparent'>
-          Proyectos
-        </h1>
-      </div>
+      </Title>
+
       <div className='flex flex-col gap-10 md:gap-12'>
         <Project
           img='https://porfolio.dev/projects/svgl.webp'
           name='Porfolio Web'
           subName='Bonito escaparate de mis habilidades'
+          technologies={[
+            { logo: 'react', name: 'React', color: '#58C4DC' },
+            { logo: 'gsap', name: 'GSAP', color: '#0AE448' },
+            { logo: 'typescript', name: 'TypeScript', color: '#3178C6' },
+          ]}
         >
           Biblioteca de logos SVG de las marcas más populares. +10k visitas al
           mes. +2K svgs descargados. Creado desde cero con Next.js, React y
@@ -25,6 +29,10 @@ export function Projects() {
           name='Porfolio Web'
           subName='Bonito escaparate de mis habilidades'
           preview={false}
+          technologies={[
+            { logo: 'vue', name: 'Vue', color: '#41B883' },
+            { logo: 'gsap', name: 'GSAP', color: '#0AE448' },
+          ]}
         >
           Biblioteca de logos SVG de las marcas más populares. +10k visitas al
           mes. +2K svgs descargados. Creado desde cero con Next.js, React y

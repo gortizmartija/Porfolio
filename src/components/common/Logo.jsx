@@ -1,7 +1,8 @@
 export const Logo = ({ src, size = 'md', className = '', alt }) => {
   const sizes = {
-    sm: 'w-6 h-6',
-    md: 'w-8 h-8',
+    xs: 'w-5  h-5',
+    sm: 'w-8 h-8',
+    md: 'w-10 h-10',
     lg: 'w-12 h-12',
     xl: 'w-16 h-16',
   };
@@ -9,7 +10,7 @@ export const Logo = ({ src, size = 'md', className = '', alt }) => {
   return (
     <img
       src={src}
-      className={`${sizes[size]} ${className}`}
+      className={`${className} ${sizes[size]}`}
       alt={alt || 'Logo'}
     />
   );

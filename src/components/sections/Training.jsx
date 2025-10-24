@@ -1,15 +1,14 @@
 import TrainingLogo from '@/assets/icons/book.svg';
 import { Event } from '@/components/ui';
+import { Title } from '@/components/common';
 
 export function Training() {
   return (
     <article className='flex flex-col gap-6'>
-      <div className='flex gap-2 items-end '>
+      <Title text='Formación'>
         <img src={TrainingLogo} alt='Training Logo' />
-        <h1 className='text-h1s-semibold bg-gradient-to-t from-primary-200 to-neutral-50 bg-clip-text text-transparent'>
-          Formación
-        </h1>
-      </div>
+      </Title>
+
       <div className='flex flex-col gap-2'>
         <Event
           title='Cursando desarrollo de aplicaciones Python'

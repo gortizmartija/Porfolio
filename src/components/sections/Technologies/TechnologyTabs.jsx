@@ -46,10 +46,10 @@ export function TechnologyTabs() {
                   aria-controls={`panel-${tab.id}`}
                   onClick={() => setActive(tab.id)}
                   className={
-                    `text-small md:text-lg font-semibold inline-block py-4 rounded-t-lg ` +
+                    `text-small md:text-lg font-semibold inline-block py-4 rounded-t-lg cursor-pointer ` +
                     (isActive
                       ? 'text-primary-200 border-b-2 border-primary-200'
-                      : 'border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300')
+                      : 'border-b-2 border-transparent hover:text-primary-400 hover:border-primary-400')
                   }
                 >
                   {tab.label}
@@ -66,7 +66,7 @@ export function TechnologyTabs() {
           role='tabpanel'
           id={`panel-${activeTab.id}`}
           aria-labelledby={`tab-${activeTab.id}`}
-          className='flex flex-col gap-4 h-92'
+          className='flex flex-col gap-4 h-92 cursor-pointer'
         >
           {activeTab.id === 'frontend' && (
             <div className='flex flex-col gap-2'>
