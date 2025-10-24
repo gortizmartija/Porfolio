@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import React from 'react';
 
 /**
  * Button component usable as <a> or <button>
@@ -59,21 +58,3 @@ export function Button({
     </a>
   );
 }
-
-/* Usage examples:
-
-// Link style (default)
-<Button href="#projects">Ver proyectos</Button>
-
-// Outline variant
-<Button href="#about" variant="outline">Sobre mí</Button>
-
-// As a real button with click handler
-<Button as="button" onClick={() => console.log('clicked')}>Enviar</Button>
-
-// Icon-only button (accessible)
-<Button as="button" variant="icon" ariaLabel="Cerrar" onClick={onClose}>
-  <svg className="w-4 h-4" ... />
-</Button>
-
-*/

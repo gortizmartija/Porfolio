@@ -1,4 +1,4 @@
-import { Header, Section, Footer } from '@/components/app';
+import { Header, Section, Footer } from '@/components/layout';
 
 function App() {
   return (

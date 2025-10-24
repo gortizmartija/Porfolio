@@ -1,5 +1,5 @@
 import ProjectsLogo from '@/assets/icons/code.svg';
-import { Project } from '@/components';
+import { Project } from '@/components/ui';
 
 export function Projects() {
   return (

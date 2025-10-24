@@ -1,7 +1,7 @@
 import EmailLogo from '@/assets/icons/email.svg';
 import LinkedinLogo from '@/assets/logos/small/linkedin.svg';
 import GithubLogo from '@/assets/logos/small/github.svg';
-import { Button } from '@/components';
+import { Button } from '@/components/common';
 
 export function Header() {
   return (

@@ -1,7 +1,7 @@
 import PreviewLogo from '@/assets/icons/globe.svg';
 import ReactSMLogo from '@/assets/logos/small/react_dark.svg';
 import GithubLogo from '@/assets/logos/small/github.svg';
-import { Button } from '@/components';
+import { Button } from '@/components/common';
 
 export function Project({
   img,

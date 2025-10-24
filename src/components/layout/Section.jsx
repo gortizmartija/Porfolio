@@ -1,7 +1,4 @@
-import { About } from './About';
-import { Projects } from './Projects';
-import { Training } from './Training';
-import { Technologies } from './Technologies';
+import { About, Projects, Training, Technologies } from '@/components/sections';
 
 export function Section() {
   return (
