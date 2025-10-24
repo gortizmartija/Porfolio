@@ -10,7 +10,7 @@ export function Technologies() {
           Tecnologias
         </h1>
       </div>
-      <p className='text-p2-normal text-balance'>
+      <p className='text-p2-normal'>
         Algunas de las{' '}
         <span className='text-secondary-200'>tecnologias mas destacables</span>{' '}
         con las que me he familiarizado durante mi trayectoria por el mundo del

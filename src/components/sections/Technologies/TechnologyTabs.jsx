@@ -1,32 +1,5 @@
 import { useState } from 'react';
-import HtmlLogo from '@/assets/logos/html5.svg';
-import CssLogo from '@/assets/logos/css.svg';
-import FigmaLogo from '@/assets/logos/figma.svg';
-import TailwindLogo from '@/assets/logos/tailwindcss.svg';
-import JSLogo from '@/assets/logos/javascript.svg';
-import VueLogo from '@/assets/logos/vue.svg';
-import ReactLogo from '@/assets/logos/react_dark.svg';
-import JavaLogo from '@/assets/logos/java.svg';
-import PhpLogo from '@/assets/logos/php.svg';
-import LaravelLogo from '@/assets/logos/laravel.svg';
-import MysqlLogo from '@/assets/logos/mysql.svg';
-import PostgreLogo from '@/assets/logos/postgresql.svg';
-import VSLogo from '@/assets/logos/vscode.svg';
-import GitLogo from '@/assets/logos/git.svg';
-import GithubLogo from '@/assets/logos/github.svg';
-import TerminalLogo from '@/assets/logos/bash.svg';
-import PyCharmLogo from '@/assets/logos/pycharm.svg';
-import SupabaseLogo from '@/assets/logos/supabase.svg';
-import DockerLogo from '@/assets/logos/docker.svg';
-import AwsLogo from '@/assets/logos/aws.svg';
-import ViteLogo from '@/assets/logos/vitejs.svg';
-import NpmLogo from '@/assets/logos/npm.svg';
-import PythonLogo from '@/assets/logos/python.svg';
-import TSLogo from '@/assets/logos/typescript.svg';
-import GsapLogo from '@/assets/logos/gsap.svg';
-import DjangoLogo from '@/assets/logos/django.svg';
-import NodeLogo from '@/assets/logos/nodejs.svg';
-
+import { logos } from '@/assets/logos';
 import { TechBox } from '@/components/common/TechBox';
 
 const tabs = [
@@ -73,7 +46,7 @@ export function TechnologyTabs() {
                   aria-controls={`panel-${tab.id}`}
                   onClick={() => setActive(tab.id)}
                   className={
-                    `text-p2-semibold inline-block py-4 rounded-t-lg ` +
+                    `text-small md:text-lg font-semibold inline-block py-4 rounded-t-lg ` +
                     (isActive
                       ? 'text-primary-200 border-b-2 border-primary-200'
                       : 'border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300')
@@ -93,36 +66,30 @@ export function TechnologyTabs() {
           role='tabpanel'
           id={`panel-${activeTab.id}`}
           aria-labelledby={`tab-${activeTab.id}`}
-          className='flex flex-col gap-4 h-72'
+          className='flex flex-col gap-4 h-92'
         >
           {activeTab.id === 'frontend' && (
             <div className='flex flex-col gap-2'>
               <div className='flex gap-2'>
-                <TechBox text='HTML' hex='#E34F26'>
-                  <img src={HtmlLogo} alt='Html Logo' />
-                </TechBox>
-                <TechBox text='CSS' hex='#663399'>
-                  <img src={CssLogo} alt='CSS Logo' />
-                </TechBox>
+                <TechBox text='HTML' hex='#E34F26' logo={logos.html} />
+                <TechBox text='CSS' hex='#663399' logo={logos.css} />
               </div>
               <div className='flex gap-2'>
-                <TechBox text='Vue' hex='#41B883'>
-                  <img src={VueLogo} alt='Vue Logo' />
-                </TechBox>
-                <TechBox text='React' hex='#58C4DC'>
-                  <img src={ReactLogo} alt='React Logo' />
-                </TechBox>
-                <TechBox text='JavaScript' hex='#F0DB4F'>
-                  <img src={JSLogo} alt='JacaScript Logo' />
-                </TechBox>
+                <TechBox text='Vue' hex='#41B883' logo={logos.vue} />
+                <TechBox text='React' hex='#58C4DC' logo={logos.react} />
+                <TechBox
+                  text='JavaScript'
+                  hex='#F0DB4F'
+                  logo={logos.javascript}
+                />
               </div>
               <div className='flex gap-2'>
-                <TechBox text='Tailwind CSS' hex='#38BDF8'>
-                  <img src={TailwindLogo} alt='TailwindCSS Logo' />
-                </TechBox>
-                <TechBox text='Figma' hex='#FF7262'>
-                  <img src={FigmaLogo} alt='Figma Logo' />
-                </TechBox>
+                <TechBox
+                  text='Tailwind CSS'
+                  hex='#38BDF8'
+                  logo={logos.tailwind}
+                />
+                <TechBox text='Figma' hex='#FF7262' logo={logos.figma} />
               </div>
             </div>
           )}
@@ -130,23 +97,17 @@ export function TechnologyTabs() {
           {activeTab.id === 'backend' && (
             <div className='flex flex-col gap-2'>
               <div className='flex gap-2'>
-                <TechBox text='Java' hex='#ED8B00'>
-                  <img src={JavaLogo} alt='Java Logo' />
-                </TechBox>
-                <TechBox text='PHP' hex='#787CB5'>
-                  <img src={PhpLogo} alt='PHP Logo' />
-                </TechBox>
-                <TechBox text='Laravel' hex='#FF2D20'>
-                  <img src={LaravelLogo} alt='Laravel Logo' />
-                </TechBox>
+                <TechBox text='Java' hex='#ED8B00' logo={logos.java} />
+                <TechBox text='PHP' hex='#787CB5' logo={logos.php} />
+                <TechBox text='Laravel' hex='#FF2D20' logo={logos.laravel} />
               </div>
               <div className='flex gap-2'>
-                <TechBox text='MySQL' hex='#00758F'>
-                  <img src={MysqlLogo} alt='MySQL Logo' />
-                </TechBox>
-                <TechBox text='PostgreSQL' hex='#336791'>
-                  <img src={PostgreLogo} alt='PostgreSQL Logo' />
-                </TechBox>
+                <TechBox text='MySQL' hex='#00758F' logo={logos.mysql} />
+                <TechBox
+                  text='PostgreSQL'
+                  hex='#336791'
+                  logo={logos.postgresql}
+                />
               </div>
             </div>
           )}
@@ -154,42 +115,22 @@ export function TechnologyTabs() {
           {activeTab.id === 'tools' && (
             <div className='flex flex-col gap-2'>
               <div className='flex gap-2'>
-                <TechBox text='VSCode' hex='#24ACF2'>
-                  <img src={VSLogo} alt='VSCode Logo' />
-                </TechBox>
-                <TechBox text='Git' hex='#DE4C36'>
-                  <img src={GitLogo} alt='Git Logo' />
-                </TechBox>
-                <TechBox text='GitHub' hex='#FFFFFF'>
-                  <img src={GithubLogo} alt='GitHub Logo' />
-                </TechBox>
+                <TechBox text='VSCode' hex='#24ACF2' logo={logos.vscode} />
+                <TechBox text='Git' hex='#DE4C36' logo={logos.git} />
+                <TechBox text='GitHub' hex='#FFFFFF' logo={logos.github} />
               </div>
               <div className='flex gap-2'>
-                <TechBox text='Terminal' hex='#FFFFFF'>
-                  <img src={TerminalLogo} alt='Terminal Logo' />
-                </TechBox>
-                <TechBox text='PyCharm' hex='#1FD592'>
-                  <img src={PyCharmLogo} alt='PyCharm Logo' />
-                </TechBox>
+                <TechBox text='Terminal' hex='#FFFFFF' logo={logos.terminal} />
+                <TechBox text='PyCharm' hex='#1FD592' logo={logos.pycharm} />
               </div>
               <div className='flex gap-2'>
-                <TechBox text='Supabase' hex='#3ECF8E'>
-                  <img src={SupabaseLogo} alt='Supabase Logo' />
-                </TechBox>
-                <TechBox text='Vite' hex='#41D1FF'>
-                  <img src={ViteLogo} alt='Vite Logo' />
-                </TechBox>
-                <TechBox text='AWS' hex='#FF9900'>
-                  <img src={AwsLogo} alt='AWS Logo' />
-                </TechBox>
+                <TechBox text='Supabase' hex='#3ECF8E' logo={logos.supabase} />
+                <TechBox text='Vite' hex='#41D1FF' logo={logos.vite} />
+                <TechBox text='AWS' hex='#FF9900' logo={logos.aws} />
               </div>
               <div className='flex gap-2'>
-                <TechBox text='Docker' hex='#008FE2'>
-                  <img src={DockerLogo} alt='Docker Logo' />
-                </TechBox>
-                <TechBox text='npm' hex='#CB3837'>
-                  <img src={NpmLogo} alt='npm Logo' />
-                </TechBox>
+                <TechBox text='Docker' hex='#008FE2' logo={logos.docker} />
+                <TechBox text='npm' hex='#CB3837' logo={logos.npm} />
               </div>
             </div>
           )}
@@ -197,23 +138,17 @@ export function TechnologyTabs() {
           {activeTab.id === 'learning' && (
             <div className='flex flex-col gap-2'>
               <div className='flex gap-2'>
-                <TechBox text='Python' hex='#FED444'>
-                  <img src={PythonLogo} alt='Python Logo' />
-                </TechBox>
-                <TechBox text='Django' hex='#44b88b'>
-                  <img src={DjangoLogo} alt='Django Logo' />
-                </TechBox>
-                <TechBox text='GSAP' hex='#0AE448'>
-                  <img src={GsapLogo} alt='GSAP Logo' />
-                </TechBox>
+                <TechBox text='Python' hex='#FED444' logo={logos.python} />
+                <TechBox text='Django' hex='#44b88b' logo={logos.django} />
+                <TechBox text='GSAP' hex='#0AE448' logo={logos.gsap} />
               </div>
               <div className='flex gap-2'>
-                <TechBox text='Node.js' hex='#3C873A'>
-                  <img src={NodeLogo} alt='NodeJS Logo' />
-                </TechBox>
-                <TechBox text='TypeScript' hex='#3178C6'>
-                  <img src={TSLogo} alt='TypeScript Logo' />
-                </TechBox>
+                <TechBox text='Node.js' hex='#3C873A' logo={logos.nodejs} />
+                <TechBox
+                  text='TypeScript'
+                  hex='#3178C6'
+                  logo={logos.typescript}
+                />
               </div>
             </div>
           )}
