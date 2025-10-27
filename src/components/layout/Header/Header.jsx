@@ -7,29 +7,87 @@ import CV from '@/assets/CV.pdf';
 
 export function Header() {
   const container = useRef(null);
+  const text = 'Gael Ortiz';
+  const speed = 0.1;
 
   useGSAP(
     () => {
-      // Animación de aparición
-      gsap.from('.subheading, .heading, .buttons', {
-        delay: 1.5,
-        opacity: 0,
-        duration: 1.5,
-        ease: 'power4.out',
+      const element = container.current.querySelector('.heading');
+      const chars = text.split('');
+
+      // Timeline principal 🔁
+      const tl = gsap.timeline({
+        delay: 1,
+        repeat: -1,
+        repeatDelay: 0.5,
       });
+
+      // ✍️ Typing (escribir)
+      chars.forEach((_, i) => {
+        tl.to(
+          {},
+          {
+            duration: speed,
+            onComplete: () => {
+              element.innerHTML =
+                text.slice(0, i + 1) + '<span class="cursor">|</span>';
+            },
+          }
+        );
+      });
+
+      // 🕒 Mantener texto completo
+      tl.to({}, { duration: 2 });
+
+      // 💨 Borrar texto
+      chars.forEach((_, i) => {
+        tl.to(
+          {},
+          {
+            duration: speed / 1.2,
+            onComplete: () => {
+              element.innerHTML =
+                text.slice(0, chars.length - i - 1) +
+                '<span class="cursor">|</span>';
+            },
+          }
+        );
+      });
+
+      // ✨ Aparición inicial
+      gsap.from(['.subheading', '.buttons'], {
+        delay: 2,
+        opacity: 0,
+        duration: 5,
+        ease: 'power4.out',
+        stagger: 0.2,
+      });
+
+      // 👇 Parpadeo cursor
+      gsap.to('.cursor', {
+        opacity: 0,
+        repeat: -1,
+        yoyo: true,
+        ease: 'none',
+        duration: 0.5,
+      });
+
+      return () => tl.kill();
     },
     { scope: container }
   );
 
   return (
-    <header className='flex flex-col gap-1 w-vw h-dvh justify-center items-center '>
+    <header className='flex flex-col gap-1 w-vw h-dvh justify-center items-center'>
       <div ref={container}>
         <h1 className='heading text-d1s-semibold bg-gradient-to-r from-primary-300 to-secondary-500 bg-clip-text text-transparent w-fit'>
-          Gael Ortiz
+          <span className='cursor'>|</span>
         </h1>
+
         <h4 className='subheading text-h4s-semibold italic px-0.5 bg-gradient-to-t from-primary-100 to-neutral-50 bg-clip-text text-transparent'>
           Desarrollador de Software
         </h4>
+
         <nav className='buttons flex items-center gap-2 mt-3'>
           <Button
             href={CV}
@@ -39,6 +97,7 @@ export function Header() {
           >
             Descargar CV
           </Button>
+
           <Button
             href='mailto:gortizmartija@gmail.com'
             arialabel='Contactame a traves del Correo'
@@ -71,6 +130,7 @@ export function Header() {
               />
             </svg>
           </Button>
+
           <Button
             href='https://www.linkedin.com/in/gortizmartija'
             arialabel='Contactame a traves de Linkedin'
@@ -110,6 +170,7 @@ export function Header() {
               />
             </svg>
           </Button>
+
           <Button
             href='https://github.com/gortizmartija'
             arialabel='Informate sobre mis proyectos en GitHub'
@@ -142,6 +203,7 @@ export function Header() {
           </Button>
         </nav>
       </div>
+
       <Blobs />
     </header>
   );

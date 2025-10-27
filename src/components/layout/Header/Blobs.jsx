@@ -13,9 +13,7 @@ export function Blobs() {
       const blobs = gsap.utils.toArray('.blob');
 
       gsap.from('.gradients', {
-        delay: 1,
-        width: 0,
-        height: 0,
+        opacity: 0,
         duration: 1.5,
         ease: 'power4.out',
       });
@@ -37,7 +35,7 @@ export function Blobs() {
         if (b1 && b2) {
           gsap.to(b1, {
             morphSVG: b2,
-            duration: 12 + i,
+            duration: 6 + i,
             repeat: -1,
             yoyo: true,
             ease: 'sine.inOut',
@@ -67,7 +65,10 @@ export function Blobs() {
   );
 
   return (
-    <div className='overflow-hidden absolute -z-10 w-full h-full'>
+    <div
+      className='overflow-hidden absolute -z-10 w-full h-full'
+      ref={container}
+    >
       <div className='gradients absolute inset-16 bg-[radial-gradient(closest-side,#2D0B3C70,#0E050A00)] bg-center'></div>
       <div className='gradients absolute inset-0 -z-20 bg-[radial-gradient(at_top_right,#1C004F70,#0E050A00)] bg-center'></div>
       <div className='gradients absolute inset-0 -z-20 bg-[radial-gradient(at_top_left,#0D022470,#0E050A00)] bg-center'></div>
@@ -90,10 +91,7 @@ export function Blobs() {
           </filter>
         </defs>
       </svg>
-      <div
-        className='gradient-container overflow-hidden w-full h-full'
-        ref={container}
-      >
+      <div className='gradient-container overflow-hidden w-full h-full'>
         <svg
           id='visual'
           className='blob absolute -bottom-100 md:-bottom-80 -left-60 md:-left-30'
