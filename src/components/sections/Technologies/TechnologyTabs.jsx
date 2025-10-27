@@ -49,10 +49,10 @@ export function TechnologyTabs() {
                     ${
                       isActive
                         ? 'text-primary-200'
-                        : 'text-gray-400 hover:text-primary-400'
+                        : 'text-nuetral-500 hover:text-primary-50'
                     }
                     after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 
-                    after:bg-primary-200 after:transform after:scale-x-0 after:transition-transform 
+                    after:bg-primary-50 after:transform after:scale-x-0 after:transition-transform 
                     ${
                       isActive ? 'after:scale-x-100' : 'hover:after:scale-x-100'
                     }`}

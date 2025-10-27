@@ -9,7 +9,7 @@
 }
 
 .gradient-container {
-  filter: url(#goo) blur(5px);
+  filter: url(#goo) blur(15px);
 }
 
 @theme {

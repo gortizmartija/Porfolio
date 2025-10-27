@@ -12,12 +12,20 @@ export function Blobs() {
     () => {
       const blobs = gsap.utils.toArray('.blob');
 
+      gsap.from('.gradients', {
+        delay: 1,
+        width: 0,
+        height: 0,
+        duration: 1.5,
+        ease: 'power4.out',
+      });
+
       // Animación de aparición
       gsap.from(blobs, {
         delay: 1,
         width: 0,
         height: 0,
-        duration: 1.5,
+        duration: 5,
         ease: 'power4.out',
       });
 
@@ -29,7 +37,7 @@ export function Blobs() {
         if (b1 && b2) {
           gsap.to(b1, {
             morphSVG: b2,
-            duration: 12 + i * 2,
+            duration: 12 + i,
             repeat: -1,
             yoyo: true,
             ease: 'sine.inOut',
@@ -39,12 +47,14 @@ export function Blobs() {
         // Movimiento sutil aleatorio
         const randomX = gsap.utils.random(-10, 10); // px
         const randomY = gsap.utils.random(-10, 10); // px
-        const randomDuration = gsap.utils.random(12, 24); // segundos
+        const randomScale = gsap.utils.random(0.95, 1.05); // sutil ±5%
+        const randomDuration = gsap.utils.random(6, 12); // segundos
         const randomDelay = gsap.utils.random(0, 5); // asincronía
 
         gsap.to(blob, {
           x: `+=${randomX}`,
           y: `+=${randomY}`,
+          scale: randomScale,
           duration: randomDuration,
           delay: randomDelay,
           repeat: -1,
@@ -58,9 +68,9 @@ export function Blobs() {
 
   return (
     <div className='overflow-hidden absolute -z-10 w-full h-full'>
-      <div className='absolute inset-16 bg-[radial-gradient(closest-side,#2D0B3C70,#0E050A00)] bg-center'></div>
-      <div className='absolute inset-0 -z-20 bg-[radial-gradient(at_top_right,#1C004F70,#0E050A00)] bg-center'></div>
-      <div className='absolute inset-0 -z-20 bg-[radial-gradient(at_top_left,#0D022470,#0E050A00)] bg-center'></div>
+      <div className='gradients absolute inset-16 bg-[radial-gradient(closest-side,#2D0B3C70,#0E050A00)] bg-center'></div>
+      <div className='gradients absolute inset-0 -z-20 bg-[radial-gradient(at_top_right,#1C004F70,#0E050A00)] bg-center'></div>
+      <div className='gradients absolute inset-0 -z-20 bg-[radial-gradient(at_top_left,#0D022470,#0E050A00)] bg-center'></div>
 
       <svg xmlns='http://www.w3.org/2000/svg' className='absolute'>
         <defs>
@@ -86,7 +96,7 @@ export function Blobs() {
       >
         <svg
           id='visual'
-          className='blob absolute -bottom-100 -left-80'
+          className='blob absolute -bottom-100 md:-bottom-80 -left-60 md:-left-30'
           viewBox='0 0 900 600'
           width='900'
           height='600'
@@ -119,7 +129,7 @@ export function Blobs() {
         </svg>
         <svg
           id='visual'
-          className='blob absolute -top-10 -right-100'
+          className='blob absolute -top-10 md:-top-80 -right-100 md:-right-20 md:size-[1200px]'
           viewBox='0 0 900 600'
           width='900'
           height='600'
@@ -151,7 +161,7 @@ export function Blobs() {
         </svg>
         <svg
           id='visual'
-          className='blob absolute -top-50 -left-100'
+          className='blob absolute -top-50 md:-top-30 -left-100 md:-left-60'
           viewBox='0 0 900 600'
           width='900'
           height='600'
@@ -183,7 +193,7 @@ export function Blobs() {
         </svg>
         <svg
           id='10015.io'
-          className='blob absolute bottom-25 right-0 w-50 h-50 fill-current'
+          className='blob absolute bottom-25 md:-bottom-15 right-0 md:-right-30 w-50 md:w-130 h-50 md:h-130 fill-current'
           viewBox='0 0 480 480'
           xmlns='http://www.w3.org/2000/svg'
           xmlnsXlink='http://www.w3.org/1999/xlink'
@@ -209,7 +219,7 @@ export function Blobs() {
         </svg>
         <svg
           id='visual'
-          className='blob absolute bottom-40 -left-10 w-70 h-70 fill-current'
+          className='blob absolute bottom-40 md:bottom-15 -left-10 md:left-40 w-70 md:w-180 h-70 md:h-180 fill-current'
           viewBox='0 0 900 600'
           width='900'
           height='600'
@@ -240,7 +250,64 @@ export function Blobs() {
         </svg>
         <svg
           id='10015.io'
-          className='blob absolute -top-10 right-10 w-40 h-40 fill-current'
+          className='blob absolute -top-10 md:-top-10 right-10 md:right-0 w-40 md:w-60 h-40 md:h-60 rotate-180'
+          viewBox='0 0 480 480'
+          xmlns='http://www.w3.org/2000/svg'
+          xmlnsXlink='http://www.w3.org/1999/xlink'
+        >
+          <defs>
+            <linearGradient id='grad6' x1='0%' y1='100%' x2='100%' y2='0%'>
+              <stop offset='0%' stopColor='#F48E20' />
+              <stop offset='50%' stopColor='#BB3691' />
+              <stop offset='100%' stopColor='#6B0AD3' />
+            </linearGradient>
+          </defs>
+          <path
+            className='b1'
+            fill='url(#grad6)'
+            d='M307.5,279.5Q285,319,225,344Q165,369,126,304.5Q87,240,109.5,146.5Q132,53,200.5,121Q269,189,299.5,214.5Q330,240,307.5,279.5Z'
+          />
+          <path
+            className='b2 hidden'
+            fill='url(#grad3)'
+            d='M366,282.5Q289,325,217.5,364Q146,403,110,321.5Q74,240,139.5,209.5Q205,179,254.5,153.5Q304,128,373.5,184Q443,240,366,282.5Z'
+          />
+        </svg>
+        <svg
+          id='visual'
+          className='blob hidden md:inline absolute -top-50 left-90 rotate-180'
+          viewBox='0 0 900 600'
+          width='900'
+          height='600'
+          xmlns='http://www.w3.org/2000/svg'
+          xmlnsXlink='http://www.w3.org/1999/xlink'
+          version='1.1'
+        >
+          <defs>
+            <linearGradient id='grad1' x1='0%' y1='100%' x2='100%' y2='0%'>
+              <stop offset='0%' stopColor='#6B0AD3' />
+              <stop offset='50%' stopColor='#BB3691' />
+              <stop offset='100%' stopColor='#F48E20' />
+            </linearGradient>
+          </defs>
+
+          <g transform='translate(471.6279727575952 277.78064168756003)'>
+            <path
+              fill='url(#grad2)'
+              className='b1'
+              d='M89.1 -77.6C114.1 -64.1 132.1 -32.1 124.9 -7.2C117.7 17.7 85.4 35.4 60.4 49.2C35.4 63 17.7 73 -3.1 76.1C-23.8 79.1 -47.6 75.3 -63.8 61.4C-79.9 47.6 -88.5 23.8 -88.4 0.1C-88.2 -23.6 -79.5 -47.1 -63.3 -60.6C-47.1 -74.1 -23.6 -77.6 4.2 -81.8C32.1 -86.1 64.1 -91.1 89.1 -77.6'
+            ></path>
+          </g>
+          <g transform='translate(462.92633081213546 318.74724394301177)'>
+            <path
+              className='b2 hidden'
+              d='M32.5 -56.9C43 -37.1 52.9 -28.8 69.1 -14.1C85.3 0.5 107.8 21.4 111.5 44.4C115.3 67.3 100.3 92.3 78.5 104.3C56.8 116.2 28.4 115.1 -0.5 115.8C-29.4 116.5 -58.8 118.9 -68 102.9C-77.2 86.9 -66.2 52.4 -74.6 24.7C-83.1 -3.1 -111 -24.1 -112.1 -41.4C-113.3 -58.7 -87.8 -72.2 -64.7 -87.9C-41.5 -103.5 -20.8 -121.3 -4.9 -114.5C11 -107.8 22 -76.7 32.5 -56.9'
+            ></path>
+          </g>
+        </svg>
+        <svg
+          id='10015.io'
+          className='blob hidden md:inline absolute bottom-40 right-140 w-50 h-50 rotate-90'
           viewBox='0 0 480 480'
           xmlns='http://www.w3.org/2000/svg'
           xmlnsXlink='http://www.w3.org/1999/xlink'
@@ -262,6 +329,31 @@ export function Blobs() {
             fill='url(#grad6)'
             d='M366,282.5Q289,325,217.5,364Q146,403,110,321.5Q74,240,139.5,209.5Q205,179,254.5,153.5Q304,128,373.5,184Q443,240,366,282.5Z'
           />
+        </svg>
+        <svg
+          id='10015.io'
+          className='blob hidden md:inline absolute -bottom-30 left-190 w-80 h-80'
+          viewBox='0 0 480 480'
+          xmlns='http://www.w3.org/2000/svg'
+          xmlnsXlink='http://www.w3.org/1999/xlink'
+        >
+          <defs>
+            <linearGradient id='grad6' x1='0%' y1='100%' x2='100%' y2='0%'>
+              <stop offset='0%' stopColor='#6B0AD3' />
+              <stop offset='50%' stopColor='#BB3691' />
+              <stop offset='100%' stopColor='#F48E20' />
+            </linearGradient>
+          </defs>
+          <path
+            fill='url(#grad2)'
+            className='b2'
+            d='M89.1 -77.6C114.1 -64.1 132.1 -32.1 124.9 -7.2C117.7 17.7 85.4 35.4 60.4 49.2C35.4 63 17.7 73 -3.1 76.1C-23.8 79.1 -47.6 75.3 -63.8 61.4C-79.9 47.6 -88.5 23.8 -88.4 0.1C-88.2 -23.6 -79.5 -47.1 -63.3 -60.6C-47.1 -74.1 -23.6 -77.6 4.2 -81.8C32.1 -86.1 64.1 -91.1 89.1 -77.6'
+          ></path>
+          <path
+            fill='url(#grad2)'
+            className='b1'
+            d='M32.5 -56.9C43 -37.1 52.9 -28.8 69.1 -14.1C85.3 0.5 107.8 21.4 111.5 44.4C115.3 67.3 100.3 92.3 78.5 104.3C56.8 116.2 28.4 115.1 -0.5 115.8C-29.4 116.5 -58.8 118.9 -68 102.9C-77.2 86.9 -66.2 52.4 -74.6 24.7C-83.1 -3.1 -111 -24.1 -112.1 -41.4C-113.3 -58.7 -87.8 -72.2 -64.7 -87.9C-41.5 -103.5 -20.8 -121.3 -4.9 -114.5C11 -107.8 22 -76.7 32.5 -56.9'
+          ></path>
         </svg>
       </div>
       <svg

@@ -4,7 +4,7 @@ export function Footer() {
       <p className='text-footer-normal'>© 2025 - Gael Ortiz Martija</p>
       <a
         href='mailto:gortizmartija@gmail.com'
-        className='text-footer-semibold hover:underline'
+        className='text-footer-semibold hover:text-primary-50 hover:underline'
       >
         Contacto
       </a>
