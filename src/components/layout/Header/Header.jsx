@@ -1,9 +1,10 @@
 import { Button } from '@/components/common';
+import { Blobs } from './Blobs';
 import CV from '@/assets/CV.pdf';
 
 export function Header() {
   return (
-    <header className='flex flex-col gap-1 w-vw h-dvh justify-center items-center'>
+    <header className='flex flex-col gap-1 w-vw h-dvh justify-center items-center '>
       <div>
         <h1 className='text-d1s-semibold bg-gradient-to-r from-primary-300 to-secondary-500 bg-clip-text text-transparent w-fit'>
           Gael Ortiz
@@ -123,6 +124,7 @@ export function Header() {
           </Button>
         </nav>
       </div>
+      <Blobs />
     </header>
   );
 }

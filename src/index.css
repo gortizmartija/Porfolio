@@ -8,6 +8,10 @@
   }
 }
 
+.gradient-container {
+  filter: url(#goo) blur(5px);
+}
+
 @theme {
   /* Espaciados */
   --spacing-space-1: 2px;
