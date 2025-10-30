@@ -23,18 +23,17 @@ export function Button({
 }) {
   const base = 'rounded-full';
   const variants = {
-    defaultSM:
-      'py-2 px-3 bg-primary-500 hover:bg-primary-700 focus:bg-primary-900 text-p1-semibold',
+    defaultSM: 'py-2 px-3 bg-primary-500 hover:bg-primary-700 text-p1-semibold',
     outlineSM:
-      'py-2 px-3 border-2 border-primary-100 text-primary-100 hover:border-primary-300 hover:text-primary-300 focus:border-primary-700 focus:text-primary-700 text-p1-semibold',
+      'py-2 px-3 border-2 border-primary-100 text-primary-100 hover:border-primary-300 hover:text-primary-300 text-p1-semibold',
     outlineIconSM:
-      'inline-flex items-center justify-center w-9 h-9 border-primary-100 hover:border-primary-300 hover:text-primary-300 focus:border-primary-700 focus:text-primary-700 text-primary-100 border-2 text-p1-semibold',
+      'inline-flex items-center justify-center w-9 h-9 border-primary-100 hover:border-primary-300 hover:text-primary-300 text-primary-100 border-2 text-p1-semibold',
     defaultMD:
-      'flex items-center gap-2 bg-primary-500 hover:bg-primary-700 focus:bg-primary-900 text-p2-semibold py-2.5 px-4',
+      'flex items-center gap-2 bg-primary-500 hover:bg-primary-700 text-p2-semibold py-2.5 px-4',
     outlineMD:
-      'flex items-center gap-2 border-primary-100 text-p2-semibold text-primary-100 hover:border-primary-300 hover:text-primary-300 focus:border-primary-700 focus:text-primary-700 border-2 py-2.5 px-4',
+      'flex items-center gap-2 border-primary-100 text-p2-semibold text-primary-100 hover:border-primary-300 hover:text-primary-300 border-2 py-2.5 px-4',
     outlineIconMD:
-      'inline-flex items-center justify-center w-9 h-9 border-primary-100 text-primary-100 hover:border-primary-300 hover:text-primary-300 focus:border-primary-700 focus:text-primary-700 border-2 text-p2-semibold ',
+      'inline-flex items-center justify-center w-9 h-9 border-primary-100 text-primary-100 hover:border-primary-300 hover:text-primary-300 focus:border-primary-700  border-2 text-p2-semibold ',
   };
 
   const classes = clsx(base, variants[variant], className);

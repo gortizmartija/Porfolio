@@ -5,6 +5,9 @@
   :root {
     background-color: theme(--color-darkmode-500);
     color: theme(--color-neutral-50);
+
+    /* RGB values for button hover effect */
+    --color-primary-300-rgb: 71, 85, 105; /* Adjust these values to match your primary-300 color */
   }
 }
 
