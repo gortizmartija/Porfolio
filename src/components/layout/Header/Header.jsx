@@ -121,7 +121,7 @@ export function Header() {
   );
 
   return (
-    <header className='flex flex-col gap-1 w-vw h-dvh justify-center items-center'>
+    <header className='flex flex-col gap-1 w-vw h-screen justify-center items-center'>
       <div ref={container}>
         {/* heading empieza vacío; la animación se encarga de rellenarlo. */}
         <h1 className='heading min-h-16 text-d1s-semibold bg-gradient-to-r from-primary-300 to-secondary-500 bg-clip-text text-transparent w-fit'>
