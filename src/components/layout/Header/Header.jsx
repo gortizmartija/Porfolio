@@ -136,14 +136,14 @@ export function Header() {
           <span className='cursor'>|</span>
         </h1>
 
-        <h4 className='subheading text-h4s-semibold italic px-0.5 bg-gradient-to-t from-primary-100 to-neutral-50 bg-clip-text text-transparent'>
+        <h2 className='subheading text-h4s-semibold italic px-0.5 bg-gradient-to-t from-primary-100 to-neutral-50 bg-clip-text text-transparent'>
           Desarrollador de Software
-        </h4>
+        </h2>
 
         <nav className='buttons flex items-center gap-2 mt-3'>
           <Button
             href={CV}
-            arialabel='Descargate mi CV'
+            ariaLabel='Descargate mi CV'
             variant='outlineSM'
             download
           >
@@ -152,7 +152,7 @@ export function Header() {
 
           <Button
             href='mailto:gortizmartija@gmail.com'
-            arialabel='Contactame a traves del Correo'
+            ariaLabel='Contactame a traves del Correo'
             variant='outlineIconSM'
             className='group'
             target='_self'
@@ -185,7 +185,7 @@ export function Header() {
 
           <Button
             href='https://www.linkedin.com/in/gortizmartija'
-            arialabel='Contactame a traves de Linkedin'
+            ariaLabel='Contactame a traves de Linkedin'
             variant='outlineIconSM'
             className='group'
           >
@@ -225,7 +225,7 @@ export function Header() {
 
           <Button
             href='https://github.com/gortizmartija'
-            arialabel='Informate sobre mis proyectos en GitHub'
+            ariaLabel='Informate sobre mis proyectos en GitHub'
             variant='outlineIconSM'
             className='group'
           >

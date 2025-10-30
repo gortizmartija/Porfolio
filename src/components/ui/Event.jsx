@@ -24,7 +24,7 @@ export function Event({
           <span className='text-secondary-200 flex justify-center -left-[45px] absolute rounded-full bg-darkmode-500 h-10'>
             <img src={DotLogo} alt='Dot Logo' className='size-6 pt-2' />
           </span>
-          <h3 className='text-h5s-semibold italic'>{title}</h3>
+          <h2 className='text-h5s-semibold italic'>{title}</h2>
           <p className='text-p1-semibold pt-2 text-secondary-200 '>
             {subtitle}
           </p>

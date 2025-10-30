@@ -31,7 +31,6 @@ export function TechnologyTabs() {
       <div className='text-sm font-medium text-center'>
         <ul
           className='flex flex-wrap -mb-px justify-between'
-          role='tablist'
           aria-label='Algunas de las Tecnologias con las que he tenido contacto'
         >
           {tabs.map((tab) => {
@@ -40,10 +39,7 @@ export function TechnologyTabs() {
               <li key={tab.id}>
                 <button
                   type='button'
-                  role='tab'
                   id={`tab-${tab.id}`}
-                  aria-selected={isActive}
-                  aria-controls={`panel-${tab.id}`}
                   onClick={() => setActive(tab.id)}
                   className={`text-small md:text-lg font-semibold inline-block py-4 rounded-t-lg cursor-pointer relative 
                     ${

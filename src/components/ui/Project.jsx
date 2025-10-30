@@ -21,9 +21,9 @@ export function Project({
         className='rounded-[25px] md:max-w-1/2 hover:scale-105 transition-transform'
       />
       <div className='flex flex-col gap-3'>
-        <h3 className='text-h3s-semibold'>
+        <h2 className='text-h3s-semibold'>
           <span className='text-secondary-200 italic'>{name}</span> -{subName}
-        </h3>
+        </h2>
         {technologies[0] && (
           <span className='flex gap-2 flex-wrap'>
             {technologies.map(({ logo, name, color }) => (
