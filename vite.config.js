@@ -6,11 +6,10 @@ import react from '@vitejs/plugin-react-swc';
 import tailwindcss from '@tailwindcss/vite';
 
 const __filename = fileURLToPath(import.meta.url);
-
 const __dirname = path.dirname(__filename);
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: '/Porfolio/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
@@ -20,10 +19,30 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          icons: ['./src/assets/icons/*.svg'],
-          logos: ['./src/assets/logos/*.svg'],
+        // manualChunks como función para evitar usar globs inválidos
+        manualChunks(id) {
+          // vendor separa react/react-dom
+          if (
+            id.includes('node_modules/react') ||
+            id.includes('node_modules/react-dom')
+          ) {
+            return 'vendor';
+          }
+          // todos los SVG de icons en un chunk 'icons' (si se importan como módulos)
+          if (
+            id.includes('/src/assets/icons/') ||
+            id.includes('\\src\\assets\\icons\\')
+          ) {
+            return 'icons';
+          }
+          // todos los SVG de logos en un chunk 'logos'
+          if (
+            id.includes('/src/assets/logos/') ||
+            id.includes('\\src\\assets\\logos\\')
+          ) {
+            return 'logos';
+          }
+          // por defecto, deja que Rollup decida
         },
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',

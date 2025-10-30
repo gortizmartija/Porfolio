@@ -9,12 +9,14 @@ const PROJECTS = [
     name: 'Porfolio Web',
     subName: 'Bonito escaparate de mis habilidades',
     description:
-      'Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.',
+      'Porfolio Web personal con diseño moderno y minimalista. Muestra mis proyectos, habilidades y experiencia en desarrollo web. Creado desde cero con React, GSAP y Tailwind CSS.',
     preview: true,
+    hrefPreview: 'https://gortizmartija.github.io/Porfolio/',
+    hrefCodigo: 'https://github.com/gortizmartija/Porfolio',
     technologies: [
       { logo: 'react', name: 'React', color: '#58C4DC' },
       { logo: 'gsap', name: 'GSAP', color: '#0AE448' },
-      { logo: 'typescript', name: 'TypeScript', color: '#3178C6' },
+      { logo: 'tailwind', name: 'Tailwind CSS', color: '#06b6d4' },
     ],
   },
   {
@@ -47,6 +49,8 @@ export function Projects() {
             subName={project.subName}
             preview={project.preview}
             technologies={project.technologies}
+            hrefPreview={project.hrefPreview}
+            hrefCodigo={project.hrefCodigo}
           >
             {project.description}
           </Project>

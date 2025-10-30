@@ -15,19 +15,18 @@ export function Training() {
           subtitle='CIFP Elorrieta Erreka Mari LHII'
           time='Actualmente'
         >
-          Divulgo sobre programación y desarrollo web en diferentes plataformas.
-          Galardonado como mejor creador de contenido de habla no-inglesa en
-          2022 y mejor comunidad en 2023 por GitHub.
+          Creando aplicaciones prácticas con Python, explorando automatización,
+          gestión de datos y programación orientada a objetos. En constante
+          aprendizaje de nuevas librerías y buenas prácticas.
         </Event>
         <Event
           title='Formado en desarrollo de aplicaciones Web'
           subtitle='CIFP Txurdinaga LHII'
           time='2023 - 2025'
         >
-          Responsable de la plataforma, componentes y utilidades para la
-          creación y desarrollo de aplicaciones web. Mejora de un 30% en la
-          entrega de software. Implantación de medidas de integración continua y
-          despliegue con A/B testing en más de 15 equipos.
+          Diseñando y construyendo sitios modernos con HTML, CSS, JavaScript y
+          frameworks como React o Vue entre otros. Aprendiendo a unir diseño y
+          funcionalidad para ofrecer experiencias fluidas y atractivas.
         </Event>
         <Event
           variant='last'
@@ -35,9 +34,9 @@ export function Training() {
           subtitle='CIFP Elorrieta Erreka Mari LHII'
           time='2021 - 2023'
         >
-          Divulgo sobre programación y desarrollo web en diferentes plataformas.
-          Galardonado como mejor creador de contenido de habla no-inglesa en
-          2022 y mejor comunidad en 2023 por GitHub.
+          Configurando equipos, gestionando redes y solucionando problemas
+          técnicos. Aprendiendo desde la base cómo funciona la infraestructura
+          que sostiene el mundo digital.
         </Event>
       </div>
     </article>

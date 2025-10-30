@@ -71,7 +71,7 @@ export function TechnologyTabs() {
           role='tabpanel'
           id={`panel-${activeTab.id}`}
           aria-labelledby={`tab-${activeTab.id}`}
-          className='flex flex-col gap-4 h-92 cursor-pointer'
+          className='flex flex-col gap-4 h-92'
         >
           {activeTab.id === 'frontend' && (
             <div className='flex flex-col gap-2'>

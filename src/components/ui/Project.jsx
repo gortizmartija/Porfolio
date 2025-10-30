@@ -18,7 +18,7 @@ export function Project({
         alt={`Vista previa del proyecto ${name}`}
         loading='lazy'
         decoding='async'
-        className='rounded-[25px] md:max-w-1/2'
+        className='rounded-[25px] md:max-w-1/2 hover:scale-105 transition-transform'
       />
       <div className='flex flex-col gap-3'>
         <h3 className='text-h3s-semibold'>
@@ -41,7 +41,7 @@ export function Project({
           )}
           <Button
             href={hrefCodigo}
-            arialabel='Preview'
+            arialabel='Codigo de Github'
             variant='outlineMD'
             className='group'
           >

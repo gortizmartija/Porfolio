@@ -4,23 +4,28 @@ export function SvgSprite() {
   useEffect(() => {
     const loadSprites = async () => {
       try {
-        // Import all SVG files from the icons and logos directories
-        const iconContext = import.meta.glob('/src/assets/icons/*.svg', { eager: true });
-        const logoContext = import.meta.glob('/src/assets/logos/*.svg', { eager: true });
-        
+        // Forma recomendada: usar ?raw en el patrón para obtener el contenido como string.
+        // La ruta es relativa al archivo actual.
+        const iconContext = import.meta.glob('../assets/icons/*.svg?raw', {
+          eager: true,
+        });
+        const logoContext = import.meta.glob('../assets/logos/*.svg?raw', {
+          eager: true,
+        });
+
         const allModules = { ...iconContext, ...logoContext };
-        
-        const sprites = await Promise.all(
-          Object.entries(allModules).map(async ([path, mod]) => {
-            const response = await fetch(mod.default);
-            const text = await response.text();
-            // Extract filename without extension as the ID
-            const id = path.split('/').pop().replace('.svg', '');
-            return text
-              .replace(/<svg([^>]*)>/, `<symbol id="${id}"$1>`)
-              .replace('</svg>', '</symbol>');
-          })
-        );
+
+        const sprites = Object.entries(allModules).map(([path, rawSvg]) => {
+          // Extraer nombre del archivo sin extensión como id
+          const id = path
+            .split('/')
+            .pop()
+            .replace('.svg?raw', '')
+            .replace('.svg', '');
+          return rawSvg
+            .replace(/<svg([^>]*)>/i, `<symbol id="${id}"$1>`)
+            .replace(/<\/svg>/i, '</symbol>');
+        });
 
         const spriteSheet = document.createElement('div');
         spriteSheet.innerHTML = `
@@ -28,8 +33,8 @@ export function SvgSprite() {
             ${sprites.join('')}
           </svg>
         `;
-        
-        document.body.appendChild(spriteSheet.firstElementChild);
+        const svgEl = spriteSheet.firstElementChild;
+        if (svgEl) document.body.insertBefore(svgEl, document.body.firstChild);
       } catch (error) {
         console.error('Error loading SVG sprites:', error);
       }
@@ -40,8 +45,3 @@ export function SvgSprite() {
 
   return null;
 }
-
-// Usage example:
-// <SvgSprite />  {/* Add this at the root of your app */}
-// Then use SVGs like this:
-// <svg><use href="#icon-name" /></svg>

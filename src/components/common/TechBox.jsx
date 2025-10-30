@@ -9,7 +9,7 @@ export function TechBox({ text, hex, logo }) {
   return (
     <div
       style={styles}
-      className='h-[60px] lg:h-[80px] min-w-fit w-full flex items-center gap-2 lg:gap-3 border-2 rounded-5 p-3'
+      className='h-[60px] lg:h-[80px] min-w-fit w-full flex items-center gap-2 lg:gap-3 border-2 rounded-5 p-3 hover:scale-103 transition-transform:'
     >
       <Logo
         src={logo}

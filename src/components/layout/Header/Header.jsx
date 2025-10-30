@@ -10,17 +10,59 @@ export function Header() {
   const text = 'Gael Ortiz';
   const speed = 0.1;
 
+  // Fuentes que queremos alternar (añade las que prefieras)
+  const fontChoices = [
+    "'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+    "'Rubik', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+    "'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+    "'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+    "'Work Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+    "'Mulish', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+  ];
+
   useGSAP(
     () => {
       const element = container.current.querySelector('.heading');
       const chars = text.split('');
 
-      // Timeline principal 🔁
+      // contador de iteraciones (0 = primera pasada)
+      let iteration = 0;
+      // fuente actual (por defecto Poppins la primera vez)
+      let currentFont =
+        "'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial";
+
+      // helper: pick a random font distinta de la actual
+      const pickRandomFont = () => {
+        const pool = fontChoices.filter((f) => f !== currentFont);
+        return pool[Math.floor(Math.random() * pool.length)];
+      };
+
+      // Creamos la timeline principal (repite infinitamente)
       const tl = gsap.timeline({
         delay: 1,
         repeat: -1,
         repeatDelay: 0.5,
+        onRepeat: () => {
+          iteration += 1;
+          // Si no es la primera iteración, elegimos una nueva fuente aleatoria
+          if (iteration >= 1) {
+            // la primera repetición (iteration === 1) corresponde a la segunda "ejecución"
+            currentFont = pickRandomFont();
+          } else {
+            currentFont =
+              "'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial";
+          }
+        },
       });
+
+      // función que escribe con la fuente actual — construye el innerHTML con <span.typed>
+      const writeChar = (count) => {
+        element.innerHTML =
+          `<span class="typed" style="font-family: ${currentFont}; white-space:nowrap;">` +
+          text.slice(0, count) +
+          `</span>` +
+          `<span class="cursor">|</span>`;
+      };
 
       // ✍️ Typing (escribir)
       chars.forEach((_, i) => {
@@ -29,14 +71,18 @@ export function Header() {
           {
             duration: speed,
             onComplete: () => {
-              element.innerHTML =
-                text.slice(0, i + 1) + '<span class="cursor">|</span>';
+              // si es la primera iteración (iteration === 0) nos aseguramos de usar Poppins,
+              // para las posteriores currentFont ya habrá sido actualizado en onRepeat
+              if (iteration === 0)
+                currentFont =
+                  "'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial";
+              writeChar(i + 1);
             },
           }
         );
       });
 
-      // 🕒 Mantener texto completo
+      // 🕒 Mantener texto completo  (2s)
       tl.to({}, { duration: 2 });
 
       // 💨 Borrar texto
@@ -46,9 +92,15 @@ export function Header() {
           {
             duration: speed / 1.2,
             onComplete: () => {
+              if (iteration === 0)
+                currentFont =
+                  "'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial";
+              // notar: cuando borra usamos la misma currentFont que se aplicó al escribir
               element.innerHTML =
+                `<span class="typed" style="font-family: ${currentFont}; white-space:nowrap;">` +
                 text.slice(0, chars.length - i - 1) +
-                '<span class="cursor">|</span>';
+                `</span>` +
+                `<span class="cursor">|</span>`;
             },
           }
         );
@@ -56,20 +108,11 @@ export function Header() {
 
       // ✨ Aparición inicial
       gsap.from(['.subheading', '.buttons'], {
-        delay: 2,
+        delay: 1.5,
         opacity: 0,
         duration: 5,
         ease: 'power4.out',
         stagger: 0.2,
-      });
-
-      // 👇 Parpadeo cursor
-      gsap.to('.cursor', {
-        opacity: 0,
-        repeat: -1,
-        yoyo: true,
-        ease: 'none',
-        duration: 0.5,
       });
 
       return () => tl.kill();
@@ -80,7 +123,16 @@ export function Header() {
   return (
     <header className='flex flex-col gap-1 w-vw h-dvh justify-center items-center'>
       <div ref={container}>
-        <h1 className='heading text-d1s-semibold bg-gradient-to-r from-primary-300 to-secondary-500 bg-clip-text text-transparent w-fit'>
+        {/* heading empieza vacío; la animación se encarga de rellenarlo. */}
+        <h1 className='heading min-h-16 text-d1s-semibold bg-gradient-to-r from-primary-300 to-secondary-500 bg-clip-text text-transparent w-fit'>
+          {/* Se coloca un cursor inicial para que no haya salto visual hasta que GSAP empiece */}
+          <span
+            className='typed'
+            style={{
+              fontFamily:
+                "'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+            }}
+          ></span>
           <span className='cursor'>|</span>
         </h1>
 
