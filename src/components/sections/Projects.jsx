@@ -19,7 +19,7 @@ const PROJECTS = [
       { logo: 'tailwind', name: 'Tailwind CSS', color: '#06b6d4' },
     ],
   },
-  {
+  /*{
     img: porfolioImage,
     name: 'Porfolio Web',
     subName: 'Bonito escaparate de mis habilidades',
@@ -30,7 +30,7 @@ const PROJECTS = [
       { logo: 'vue', name: 'Vue', color: '#41B883' },
       { logo: 'laravel', name: 'Laravel', color: '#F05340' },
     ],
-  },
+  },*/
 ];
 
 export function Projects() {
