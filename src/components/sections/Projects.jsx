@@ -1,11 +1,11 @@
 import ProjectsLogo from '@/assets/icons/code.svg';
-import projectImage from '@/assets/svgl.webp';
+import porfolioImage from '@/assets/images/porfolio.webp';
 import { Project } from '@/components/ui';
 import { Title } from '@/components/common';
 
 const PROJECTS = [
   {
-    img: projectImage,
+    img: porfolioImage,
     name: 'Porfolio Web',
     subName: 'Bonito escaparate de mis habilidades',
     description:
@@ -20,15 +20,15 @@ const PROJECTS = [
     ],
   },
   {
-    img: projectImage,
+    img: porfolioImage,
     name: 'Porfolio Web',
     subName: 'Bonito escaparate de mis habilidades',
     description:
-      'Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.',
+      'Porfolio Web personal con diseño moderno y minimalista. Muestra mis proyectos, habilidades y experiencia en desarrollo web. Creado desde cero con React, GSAP y Tailwind CSS.',
     preview: false,
     technologies: [
       { logo: 'vue', name: 'Vue', color: '#41B883' },
-      { logo: 'gsap', name: 'GSAP', color: '#0AE448' },
+      { logo: 'laravel', name: 'Laravel', color: '#F05340' },
     ],
   },
 ];
