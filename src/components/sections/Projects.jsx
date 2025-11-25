@@ -1,5 +1,6 @@
 import ProjectsLogo from '@/assets/icons/code.svg';
 import porfolioImage from '@/assets/images/porfolio.webp';
+import weatherAppImage from '@/assets/images/weather-app.webp';
 import { Project } from '@/components/ui';
 import { Title } from '@/components/common';
 
@@ -19,18 +20,20 @@ const PROJECTS = [
       { logo: 'tailwind', name: 'Tailwind CSS', color: '#06b6d4' },
     ],
   },
-  /*{
-    img: porfolioImage,
-    name: 'Porfolio Web',
-    subName: 'Bonito escaparate de mis habilidades',
+  {
+    img: weatherAppImage,
+    name: 'Weather App',
+    subName: 'Datos climáticos claros y en tiempo real.',
     description:
-      'Porfolio Web personal con diseño moderno y minimalista. Muestra mis proyectos, habilidades y experiencia en desarrollo web. Creado desde cero con React, GSAP y Tailwind CSS.',
-    preview: false,
+      'Aplicación web moderna y minimalista para consultar el clima en tiempo real. Utilizando una API pública para ofrecer datos precisos y con una interfaz de usuario limpia y adaptable.',
+    preview: true,
+    hrefPreview: 'https://weather-app-xi-six-84.vercel.app/',
+    hrefCodigo: 'https://github.com/gortizmartija/weather-app',
     technologies: [
-      { logo: 'vue', name: 'Vue', color: '#41B883' },
-      { logo: 'laravel', name: 'Laravel', color: '#F05340' },
+      { logo: 'react', name: 'React', color: '#58C4DC' },
+      { logo: 'tailwind', name: 'Tailwind CSS', color: '#06b6d4' },
     ],
-  },*/
+  },
 ];
 
 export function Projects() {

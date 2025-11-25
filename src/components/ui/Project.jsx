@@ -22,7 +22,7 @@ export function Project({
       />
       <div className='flex flex-col gap-3'>
         <h2 className='text-h3s-semibold'>
-          <span className='text-secondary-200 italic'>{name}</span> -{subName}
+          <span className='text-secondary-200 italic'>{name}</span> - {subName}
         </h2>
         {technologies[0] && (
           <span className='flex gap-2 flex-wrap'>
@@ -31,7 +31,9 @@ export function Project({
             ))}
           </span>
         )}
-        <p className='text-p2-normal text-neutral-100 '>{children}</p>
+        <p className='text-p2-normal text-neutral-100 text-pretty'>
+          {children}
+        </p>
         <div className='mt-1 flex gap-2'>
           {preview && (
             <Button href={hrefPreview} arialabel='Preview' variant='defaultMD'>
