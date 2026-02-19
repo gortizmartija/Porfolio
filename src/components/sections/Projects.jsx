@@ -1,6 +1,7 @@
 import ProjectsLogo from '@/assets/icons/code.svg';
 import porfolioImage from '@/assets/images/porfolio.webp';
 import weatherAppImage from '@/assets/images/weather-app.webp';
+import YokaiApiImage from '@/assets/images/yokai-api.webp';
 import { Project } from '@/components/ui';
 import { Title } from '@/components/common';
 
@@ -21,9 +22,23 @@ const PROJECTS = [
     ],
   },
   {
+    img: YokaiApiImage,
+    name: 'Yokai API',
+    subName: 'Datos de los espíritus y monstruos del folclore japonés.',
+    description:
+      'API RESTful que ofrece información detallada sobre Yokais, fantasmas del folclore japonés. Permite a los desarrolladores acceder a datos estructurados con esta interesante temática.',
+    preview: true,
+    hrefPreview: 'https://yokai-web.vercel.app/',
+    hrefCodigo: 'https://github.com/gortizmartija/yokai-api',
+    technologies: [
+      { logo: 'vue', name: 'Vue.js', color: '#42b883' },
+      { logo: 'typescript', name: 'TypeScript', color: '#3178c6' },
+    ],
+  },
+  {
     img: weatherAppImage,
     name: 'Weather App',
-    subName: 'Datos climáticos claros y en tiempo real.',
+    subName: 'Información climática clara y en tiempo real.',
     description:
       'Aplicación web moderna y minimalista para consultar el clima en tiempo real. Utilizando una API pública para ofrecer datos precisos y con una interfaz de usuario limpia y adaptable.',
     preview: true,
