@@ -33,6 +33,7 @@ const PROJECTS = [
     technologies: [
       { logo: 'vue', name: 'Vue.js', color: '#42b883' },
       { logo: 'typescript', name: 'TypeScript', color: '#3178c6' },
+      { logo: 'python', name: 'Python', color: '#3776ab' },
     ],
   },
   {
